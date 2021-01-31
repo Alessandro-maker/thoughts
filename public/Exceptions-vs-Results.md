@@ -1,0 +1,40 @@
+# Exceptions Vs Results
+
+Here I'm writing about how to handle error states that happens in functions and how to report the unhandled to caller.
+
+The two most popular methods are __Exception__ and __Result__.
+
+## Exception
+
+Many languages support throwing exceptions.
+Throwing an exception immediately block function execution and bubble through the stack searching for a __try { } catch__ that can handle it.
+If in handler is found code execution can resume it's normal flow from and continue the handler.
+If none is found usually program execution is interrupted and exit with error.
+Exception act as a sort of alternative execution flow.
+
+## Result
+
+An other solution is to recognise error states as a valid results of function execution.
+A function that can have error states return a __Result<NormalReturnType,Error>__ that bundle both _normal_ return value and eventual error state.
+Caller function has to check if result is an error value or a non-error value and act accordingly.
+
+## Advantages and disadvantages aka tradeoffs
+
+Theorically both the approaches offer the same potential functionalities.
+You can mimic _result_ flow with _exception_ wrapping any function call that can potentially throw within a try-catch construct.
+On the other way you mimic _exception_ flow just returning any unhandled error result.
+
+So if theorically you can coherch one approach to the other the needed effort can be quite significant because you are rowing against the natural flow.
+
+If your error handling has very low granularity and you have only few (if any) top level error handling code areas throwing exceptions can be the right choice.
+The _auto-stack-climbing_ of thrown exceptions can save you much code and complexity.
+For example a cli that just terminate on error or a ui app that show generic error message (ex. "En error occurred. Please retry. If the problem persists contact us.") are examples of programs that can take advantage from this approach.
+
+If you want a more granular error management because for example trying to recover and resume normal execution or cleanup inconsistent states, function that return results can be preferable.
+Complex applications or that manage a persistent state (ex. DB) usually are in this category.
+
+## An important difference
+
+In many typed languages (ex. Typescript) exceptions have an additional weakness: they aren't part of function signature.
+This weakness prevent compiler from checking exception flow.
+
