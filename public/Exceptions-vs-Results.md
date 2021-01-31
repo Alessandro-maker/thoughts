@@ -7,7 +7,7 @@ The two most popular methods are __Exception__ and __Result__.
 ## Exception
 
 Many languages support throwing exceptions.
-Throwing an exception immediately block function execution and bubble through the stack searching for a __try { } catch__ that can handle it.
+Throwing an exception immediately block function execution and bubble through the stack searching for a __try-catch__ that can handle it.
 If in handler is found code execution can resume it's normal flow from and continue the handler.
 If none is found usually program execution is interrupted and exit with error.
 Exception act as a sort of alternative execution flow.
@@ -28,7 +28,7 @@ So if theorically you can coherch one approach to the other the needed effort ca
 
 If your error handling has very low granularity and you have only few (if any) top level error handling code areas throwing exceptions can be the right choice.
 The _auto-stack-climbing_ of thrown exceptions can save you much code and complexity.
-For example a cli that just terminate on error or a ui app that show generic error message (ex. "En error occurred. Please retry. If the problem persists contact us.") are examples of programs that can take advantage from this approach.
+For example a cli that just terminate on error or a ui app that show generic error message (ex. "An error occurred. Please retry. If the problem persists contact us.") are examples of programs that can take advantage from this approach.
 
 If you want a more granular error management because for example trying to recover and resume normal execution or cleanup inconsistent states, function that return results can be preferable.
 Complex applications or that manage a persistent state (ex. DB) usually are in this category.
@@ -36,5 +36,12 @@ Complex applications or that manage a persistent state (ex. DB) usually are in t
 ## An important difference
 
 In many typed languages (ex. Typescript) exceptions have an additional weakness: they aren't part of function signature.
-This weakness prevent compiler from checking exception flow.
+This weakness prevent compiler from checking that exception are correctly handled.
+Worst than this function documentation will lack references to throwable exceptions unless developers write down about it in function description and maintain it as code evolves.
+Even if function documentation about throwable exceptions is correctly maintained when one change all the other functions calling this one without catching possible exceptions must have its documentation updated.
+This goes on recursively aka a mess. Even more considering external libraries.
+Without automations possible with exceptions in function signature only, it's a lost war don't worth fighting.
+
+## My experience
+
 
