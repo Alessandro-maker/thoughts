@@ -1,0 +1,362 @@
+:root {
+	--line-width: 1px;
+	--text-color: #333;
+	--color1: #738372;
+	--color2: #4e937a;
+	--color3: #b4656f;
+	--color4: #948392;
+	--color5: #5cb11b;
+	--highlight-color: #c7f2a6;
+	--content-area-width: min(80vw, 800px);
+	--graph-area-width: min(80vw, 1000px);
+	--year: calc(var(--graph-area-width) / 21);
+	--tick: 3px;
+	--graph-area-height: min(80vh, 1000px);
+	--circle-diameter: 3vh;
+	--circle-width: 2px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h2 {
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: 3em 1em 0.5em;
+}
+
+h3 {
+	font-size: 1.125rem;
+	font-weight: 550;
+	margin: 0.5em 1em 0.25em;
+}
+
+li,
+p {
+	margin-top: 0;
+	margin-bottom: 0.25em;
+}
+li:last-child,
+p:last-child {
+	margin-bottom: 0;
+}
+
+.kw {
+	display: inline-block;
+	position: relative;
+}
+.kw::before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	z-index: -1;
+	top: 0.1em;
+	bottom: -0.05em;
+	left: -0.2em;
+	right: -0.1em;
+	background-color: var(--highlight-color);
+}
+a {
+	font-weight: 550;
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Text container */
+
+.text-container {
+	width: var(--content-area-width);
+}
+
+/* Links container */
+
+.links-container {
+	width: var(--content-area-width);
+	text-align: center;
+}
+.links-container a {
+	display: inline-block;
+	margin: 0.5em 1.5em;
+}
+
+/* Columns */
+
+.columns-container,
+.row {
+	display: flex;
+	flex-flow: row wrap;
+}
+.columns-container {
+	width: var(--content-area-width);
+	justify-content: center;
+}
+.row {
+	flex: 1 0 30em;
+	justify-content: stretch;
+}
+.column {
+	flex: 1 0 15em;
+	margin-bottom: 1.5em;
+}
+.column h3 {
+	margin: 0 0.5em 0.25em;
+}
+.column ul {
+	margin: 0;
+	padding: 0 2em;
+}
+
+/* History */
+
+.container-history {
+	width: var(--graph-area-width);
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.time-axis {
+	width: var(--graph-area-width);
+	height: 4em;
+	border-top: 1px solid var(--text-color);
+	position: relative;
+}
+.time-axis span {
+	rotate: -90deg;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: var(--year);
+}
+
+.epoch {
+	position: absolute;
+	top: 0;
+	bottom: -1rem;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin-left: calc(var(--year) / 2);
+}
+
+.lines-container {
+	padding: 0 0 0 calc(var(--year) / 2);
+	width: var(--graph-area-width);
+	box-sizing: border-box;
+}
+
+.line {
+	position: relative;
+	width: var(--graph-area-width);
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 80%;
+	padding: 1.25em 0;
+}
+
+.linespacer {
+	height: 1em;
+}
+
+.bar,
+.spacer {
+	box-sizing: border-box;
+}
+
+.bar label {
+	position: absolute;
+	bottom: 100%;
+	white-space: nowrap;
+	margin-bottom: 0.25em;
+}
+
+.bar {
+	position: relative;
+	overflow: visible;
+	height: 0;
+	border-style: solid;
+}
+
+.bar.t0 {
+	border-width: var(--line-width);
+	border-style: dashed;
+}
+.bar.t1 {
+	border-width: calc(var(--tick));
+	border-radius: calc(var(--tick));
+}
+.bar.t2 {
+	border-width: calc(var(--tick) * 2);
+	border-radius: calc(var(--tick) * 2);
+}
+
+.line.color1 .bar {
+	color: var(--color1);
+}
+.line.color2 .bar {
+	color: var(--color2);
+}
+.line.color3 .bar {
+	color: var(--color3);
+}
+.line.color4 .bar {
+	color: var(--color4);
+}
+.line.color5 .bar {
+	color: var(--color5);
+}
+
+#time-cursor {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 0;
+	border-left: var(--line-width) dashed var(--text-color);
+	opacity: 0.8;
+}
+
+/* Present & Future */
+
+.container-future {
+	width: min(calc(var(--graph-area-height) * 1.5), var(--graph-area-width));
+	height: var(--graph-area-height);
+	position: relative;
+}
+
+.x-axis,
+.y-axis {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	white-space: nowrap;
+}
+.x-axis {
+	left: -5vh;
+	right: 0;
+	top: 100%;
+	border-top: var(--line-width) solid;
+	height: 2ex;
+}
+.x-axis:before {
+	display: block;
+	content: '';
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	border-left: var(--line-width) solid;
+	border-top: var(--line-width) solid;
+	rotate: 135deg;
+	top: -0.54em;
+	right: 0;
+}
+.y-axis {
+	top: 0;
+	bottom: -5vh;
+	right: 100%;
+	border-right: var(--line-width) solid;
+	width: 2ex;
+}
+.y-axis label {
+	rotate: -90deg;
+}
+.y-axis:before {
+	display: block;
+	content: '';
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	border-left: var(--line-width) solid;
+	border-top: var(--line-width) solid;
+	rotate: 45deg;
+	top: 0;
+	right: -0.54em;
+}
+
+.tech {
+	position: absolute;
+	padding-left: calc(var(--circle-diameter) / 2);
+	outline: none;
+}
+.tech::before {
+	display: block;
+	content: '';
+	position: absolute;
+	top: calc(var(--circle-diameter) / 2 * -1);
+	left: calc(var(--circle-diameter) / 2 * -1);
+	border-radius: 50%;
+	border: var(--circle-width) solid;
+	width: var(--circle-diameter);
+	height: var(--circle-diameter);
+	transition: border-width 0.5s;
+	box-sizing: border-box;
+}
+.tech .text {
+	display: block;
+	margin-left: 0.5em;
+	margin-top: -1ex;
+}
+.tech .text .desc {
+	display: block;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s;
+	font-size: 80%;
+	max-width: 0;
+}
+.tech:hover,
+.tech:focus {
+	z-index: 10;
+}
+.tech:hover::before,
+.tech:focus::before {
+	border-width: calc(var(--circle-width) * 3);
+}
+.tech:hover .text,
+.tech:focus .text {
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 0 1em #fff;
+	max-width: none;
+	width: 20em;
+}
+.tech:hover .text .desc,
+.tech:focus .text .desc {
+	max-height: 10em;
+	max-width: none;
+}
+
+.tech.color1::before {
+	color: var(--color1);
+}
+.tech.color2::before {
+	color: var(--color2);
+}
+.tech.color3::before {
+	color: var(--color3);
+}
+.tech.color4::before {
+	color: var(--color4);
+}
+.tech.color5::before {
+	color: var(--color5);
+}
