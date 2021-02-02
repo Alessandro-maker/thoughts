@@ -106,7 +106,7 @@ a:hover {
 	justify-content: center;
 }
 .row {
-	flex: 1 0 30em;
+	flex: 1 1 30em;
 	justify-content: stretch;
 }
 .column {

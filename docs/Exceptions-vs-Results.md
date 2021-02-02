@@ -1,21 +1,21 @@
 # Exceptions Vs Results
 
-Here I'm writing about how to handle error states that happens in functions and how to report the unhandled to caller.
+Here I'm writing about how to handle error states that happens in functions and how to report the unhandled ones to caller.
 
-The two most popular methods are __Exception__ and __Result__.
+The two most popular methods are **Exception** and **Result**.
 
 ## Exception
 
 Many languages support throwing exceptions.
-Throwing an exception immediately block function execution and bubble through the stack searching for a __try-catch__ that can handle it.
-If in handler is found code execution can resume it's normal flow from and continue the handler.
-If none is found usually program execution is interrupted and exit with error.
+Throwing an exception immediately block function execution and bubble through the stack searching for a **try-catch** statement that can handle it.
+If in handler is found code execution can resume it's normal flow from there.
+If none is found usually program execution is interrupted and it exits with error.
 Exception act as a sort of alternative execution flow.
 
 ## Result
 
 An other solution is to recognise error states as a valid results of function execution.
-A function that can have error states return a __Result<NormalReturnType,Error>__ that bundle both _normal_ return value and eventual error state.
+A function that can have error states return a **Result<NormalReturnType,Error>** that bundle both _normal_ return value and eventual error state.
 Caller function has to check if result is an error value or a non-error value and act accordingly.
 
 ## Advantages and disadvantages aka tradeoffs
@@ -44,9 +44,7 @@ Even if function documentation about throwable exceptions is correctly maintaine
 This goes on recursively aka a mess. Even more considering external libraries.
 Without automations possible with exceptions in function signature only, it's a lost war don't worth fighting.
 
-In my opinion Java is an uncommon example of good exception management. In Java methods you have to declare thrown exceptions, including uncatched  ones, using keyword __throws__.
+In my opinion Java is an uncommon example of good exception management. In Java methods you have to declare thrown exceptions, including uncatched ones, using keyword **throws**.
 This way throwable exceptions get part of method signature, get checked by compiler and automatically updated in documentation.
 
 ## My experience and opinion
-
-
