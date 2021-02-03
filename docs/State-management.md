@@ -37,10 +37,10 @@ It's worthy (enable business opportunities)?
 Why others didn't do it?
 Check the tradeoffs and don't make the choice all alone.
 
-## Now we have a state and a list of actions/mutations, how we can manage it?
+## Now we have a state and a list of actions/mutations, how can we manage it?
 
 First of all: is possible to keep all the state in a single place? (possible not easy)
 If the answer is yes go for it!
 
-A **single source of truth** has so many advantages that easily worths most of the tradeoffs you can possibly have.
-More precisely not having it get you multiple Pandora's boxes that keep opening at the worst possible times.
+A **single source of truth** has so many advantages that easily outworths most of the tradeoffs you can possibly have.
+More precisely not having it gets you multiple Pandora's boxes that keep opening at the worst possible times.
