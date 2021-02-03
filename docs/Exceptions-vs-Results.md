@@ -47,4 +47,24 @@ Without automations possible with exceptions in function signature only, it's a 
 In my opinion Java is an uncommon example of good exception management. In Java methods you have to declare thrown exceptions, including uncatched ones, using keyword **throws**.
 This way throwable exceptions get part of method signature, get checked by compiler and automatically updated in documentation.
 
-## My experience and opinion
+## My experience and choice
+
+I started my professional programming with a project in PHP (no OO and no AOT compiler at the time) build frond ground up and contributing to a big Java home banking project.
+
+Ok, a quite bewildering start, I agree.
+But both projects, as different as they could be, made use of exceptions.
+Dynamic PHP just believe in developer. He or she knows better what to do.
+Java strictly typed OO required developer to declare exception explicitly in function signature with throws keyword so compiler can check it from ground up.
+
+Very coherent behaviour. Reassuring for a junior developer like me.
+
+Learning other languages and growing my experience I felt more and more frustrated about exceptions but they were the most popular and supported choice.
+Later on more pieces of the puzzle entered in the game and started to connect.
+Result approach seen around, backend development on bigger project, chasing correctnes leveraging functional programming without fanaticism, stric types without OO, studying Rust and trying to get the most from static analysis.
+
+So here is my verdict, for now.
+
+In a program where error management and recovery has a place and where exceptions are not so engraved in every framework and library at hand I'll choose __result__ approach over exceptions.
+
+As you can see these are very specific conditions because exceptions are so widespread everywhere.
+So I think I'll do both for quite a while :-)
