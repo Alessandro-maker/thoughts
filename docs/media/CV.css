@@ -27,6 +27,18 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 5rem;
+}
+
+* {
+	outline: none;
+}
+
+h1 {
+	text-align: left;
+	font-size: 1.75rem;
+	font-weight: 600;
+	margin: 0.5em 0;
 }
 
 h2 {
@@ -40,6 +52,11 @@ h3 {
 	font-size: 1.125rem;
 	font-weight: 550;
 	margin: 0.5em 1em 0.25em;
+}
+
+ul {
+	margin: 0.5em 0;
+	padding: 0 2em;
 }
 
 li,
@@ -75,6 +92,45 @@ a {
 }
 a:hover {
 	text-decoration: underline;
+}
+
+/* Intro */
+
+.intro {
+	width: var(--content-area-width);
+	max-width: 40rem;
+	display: grid;
+	grid-template-columns: 2fr minmax(150px, 1fr);
+	grid-gap: 1rem;
+}
+.intro > IMG {
+	grid-row: span 2;
+	width: 100%;
+}
+.contact-info > * {
+	margin: 0 0 1em;
+}
+.address {
+	display: flex;
+}
+.address a {
+	min-width: 1rem;
+	max-width: 2.25rem;
+	margin-left: 0.75rem;
+}
+.address a img {
+	width: 100%;
+}
+@media screen and (max-width: 600px) {
+	.intro {
+		grid-template-columns: minmax(40px, 1fr) 2fr;
+	}
+	.intro H1 {
+		grid-column: span 2;
+	}
+	.intro IMG {
+		grid-row: inherit;
+	}
 }
 
 /* Text container */
@@ -240,6 +296,7 @@ a:hover {
 	width: min(calc(var(--graph-area-height) * 1.5), var(--graph-area-width));
 	height: var(--graph-area-height);
 	position: relative;
+	margin-bottom: 5vh;
 }
 
 .x-axis,
@@ -296,7 +353,6 @@ a:hover {
 .tech {
 	position: absolute;
 	padding-left: calc(var(--circle-diameter) / 2);
-	outline: none;
 }
 .tech::before {
 	display: block;

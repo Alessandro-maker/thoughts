@@ -64,7 +64,7 @@ Result approach seen around, backend development on bigger project, chasing corr
 
 So here is my verdict, for now.
 
-In a program where error management and recovery has a place and where exceptions are not so engraved in every framework and library at hand I'll choose __result__ approach over exceptions.
+In a program where error management and recovery has a place and where exceptions are not so engraved in every framework and library at hand I'll choose **Result** approach over exceptions.
 
 As you can see these are very specific conditions because exceptions are so widespread everywhere.
 So I think I'll do both for quite a while :-)
