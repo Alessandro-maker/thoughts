@@ -18,16 +18,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-body {
+html {
 	font-family: 'Poppins', sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	color: var(--text-color);
+}
+@media screen and (max-width: 420px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 5rem;
 }
 
 * {
@@ -105,10 +112,17 @@ a:hover {
 }
 .intro > IMG {
 	grid-row: span 2;
+	margin-top: 1rem;
 	width: 100%;
+	min-width: 5rem;
 }
 .contact-info > * {
 	margin: 0 0 1em;
+}
+@media screen and (max-width: 420px) {
+	.contact-info > * {
+		margin: 0 0 0.5em;
+	}
 }
 .address {
 	display: flex;
@@ -130,6 +144,7 @@ a:hover {
 	}
 	.intro IMG {
 		grid-row: inherit;
+		margin-top: 0;
 	}
 }
 
@@ -256,8 +271,8 @@ a:hover {
 	border-style: dashed;
 }
 .bar.t1 {
-	border-width: calc(var(--tick));
-	border-radius: calc(var(--tick));
+	border-width: var(--tick);
+	border-radius: var(--tick);
 }
 .bar.t2 {
 	border-width: calc(var(--tick) * 2);
@@ -415,4 +430,32 @@ a:hover {
 }
 .tech.color5::before {
 	color: var(--color5);
+}
+
+/* Footer */
+
+.footer {
+	position: relative;
+	margin: 4.5rem auto;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: calc(var(--tick) * 1.5);
+	border-radius: 50%;
+}
+
+.footer::before,
+.footer::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 4rem;
+	border-top: 2px solid;
+}
+.footer::before {
+	right: calc(50% + 1.5rem);
+}
+.footer::after {
+	left: calc(50% + 1.5rem);
 }
