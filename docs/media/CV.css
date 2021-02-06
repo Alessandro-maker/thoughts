@@ -115,6 +115,7 @@ a:hover {
 	margin-top: 1rem;
 	width: 100%;
 	min-width: 5rem;
+	border-radius: 50%;
 }
 .contact-info > * {
 	margin: 0 0 1em;
@@ -197,7 +198,7 @@ a:hover {
 .container-history {
 	width: var(--graph-area-width);
 	position: relative;
-	margin-bottom: 1rem;
+	margin-bottom: 2em;
 }
 
 .time-axis {
@@ -220,11 +221,16 @@ a:hover {
 .epoch {
 	position: absolute;
 	top: 0;
-	bottom: -1rem;
+	bottom: -2em;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
 	margin-left: calc(var(--year) / 2);
+}
+.epoch label {
+	height: 2em;
+	display: flex;
+	align-items: center;
 }
 
 .lines-container {
