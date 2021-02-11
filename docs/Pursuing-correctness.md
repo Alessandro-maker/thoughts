@@ -4,7 +4,7 @@
 
 1) Correctness and security are two different things. Here I write about correctness.
 2) Error states and code bugs are two different things (See [https://blog.regehr.org/archives/1091]). Both need to be properly detected and managed. Differently.
-3) Demostrations _over_ tests
+3) Demostrations over tests
 4) No effect over local effect over wider effect
 5) Tests over nothing
 6) Documentation is usually your last defence line (in addition to helping future you and others a lot). Don't disregard it and make it effective.
@@ -21,3 +21,9 @@
 - Use proper assetions
 - Test must be fully repetable.
 - If you have to rely on execution time (ex: time-expired condition) use a common time for the request or transition. Use for example request start time. When testing this time must be supplied as input test data so part of saved test data or generated from seed for fuztests. This way tests can be repetable.
+- Don't hurry for code abstraction and extraction. Usually wait for a bunch of use cases.
+- Keep together (near) code that usually change together
+- Keep documentation as near as possible to code it refers
+- Document _why_ and remember to document _why not_ (failed experiments, if not documented, tends to repete themself. same as history)
+- Document _what_ only if code clarity sucks and there's nothing you can do about it. Document why it can't suck less and failed experiments too.
+
