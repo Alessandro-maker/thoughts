@@ -1,6 +1,7 @@
-# Exceptions Vs Results
+# Error handling: Exceptions Vs Results
 
-Here I'm writing about how to handle error states that happens in functions and how to report the unhandled ones to caller.
+Error states and code bugs are two different things (See [https://blog.regehr.org/archives/1091]).
+Here I'm writing about how to handle error states and the methods to handle them.
 
 The two most popular methods are **Exception** and **Result**.
 
