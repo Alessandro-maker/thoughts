@@ -18,6 +18,7 @@
 - Use always _unknown_ for external inputs. Prefer parsers (function that convert a less typed data structure to a more strictly typed one) over validators (function that check input but let it unchanged).
 - Use type casts for compiler limitations or unavoidable architectural limitations only. When you have to use it mark it properly, take extra care, surround with assertions and check with tests.
 - Use of parsers over validators usually let you avoid to cast over conditions you already checked and that compiler can't infer.
+  <<<<<<< HEAD
 - Use proper assertions
 - Test must be fully repeatable.
 - If you have to rely on execution time (ex: time-expired condition) use a common time for the request or transition. Use for example request start time. When testing this time must be supplied as input test data so part of saved test data or generated from seed for fuztests. This way tests can be repeatable.
@@ -25,4 +26,14 @@
 - Keep together (near) code that usually change together
 - Keep documentation as near as possible to code it refers
 - Document _why_ and remember to document _why not_ (failed experiments, if not documented, tends to repeate themself. same as history)
+- # Document _what_ only if code clarity sucks and there's nothing you can do about it. Document why it can't suck less and failed experiments too.
+- Use proper assetions
+- Test must be fully repetable.
+- If you have to rely on execution time (ex: time-expired condition) use a common time for the request or transition. Use for example request start time. When testing this time must be supplied as input test data so part of saved test data or generated from seed for fuztests. This way tests can be repetable.
+- Don't hurry for code abstraction and extraction. Usually wait for a bunch of use cases.
+- Keep together (near) code that usually change together
+- Keep documentation as near as possible to code it refers
+- Document _why_ and remember to document _why not_ (failed experiments, if not documented, tends to repete themself. same as history)
 - Document _what_ only if code clarity sucks and there's nothing you can do about it. Document why it can't suck less and failed experiments too.
+
+> > > > > > > 0f96f68a7345d974cc914f5e595924b4cc951bb6
