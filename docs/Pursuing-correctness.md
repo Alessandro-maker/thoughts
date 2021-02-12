@@ -24,5 +24,5 @@
 - Don't hurry for code abstraction and extraction. Usually wait for a bunch of use cases.
 - Keep together (near) code that usually change together
 - Keep documentation as near as possible to code it refers
-- Document _why_ and remember to document _why not_ (failed experiments, if not documented, tends to repeate themself. same as history)
+- Document _why_ and remember to document _why not_ (failed experiments, if not documented, tends to repeat themself. same as history)
 - Document _what_ only if code clarity sucks and there's nothing you can do about it. Document why it can't suck less and failed experiments too.
