@@ -4,7 +4,7 @@
 
 1. Correctness and security are two different things. Here I write about correctness.
 2. Error states and code bugs are two different things (See [https://blog.regehr.org/archives/1091]). Both need to be properly detected and managed. Differently.
-3. Demonstrations over tests
+3. Proofs over tests
 4. No effect over local effect over wider effect
 5. Tests over nothing
 6. Documentation is usually your last defence line (in addition to helping future you and others a lot). Don't disregard it and make it effective.
