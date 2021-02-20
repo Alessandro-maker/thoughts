@@ -344,10 +344,10 @@
 			var main = cursor.parentElement;
 			main.addEventListener('mouseenter', (e) => {
 				cursor.style.display = 'block';
-				cursor.style.left = e.screenX - main.getBoundingClientRect().x + 'px';
+				cursor.style.left = e.clientX - main.getBoundingClientRect().x + 'px';
 			});
 			main.addEventListener('mousemove', (e) => {
-				cursor.style.left = e.screenX - main.getBoundingClientRect().x + 'px';
+				cursor.style.left = e.clientX - main.getBoundingClientRect().x + 'px';
 			});
 			main.addEventListener('mouseleave', (e) => {
 				cursor.style.display = '';
@@ -499,7 +499,7 @@
 				</div>
 			</div>
 		</div>
-
+<!-- Not finished yet
 		<h2>Going deeper - What do I think about ... ?</h2>
 		<p class="links-container">
 			<a href="State-management" target="_blank">State management</a>
@@ -508,6 +508,7 @@
 			>
 			<a href="Pursuing-correctness" target="_blank">Pursuing correctness</a>
 		</p>
+-->
 
 		<h2>Life out there</h2>
 		<ul class="text-container">
