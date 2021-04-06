@@ -61,13 +61,20 @@ h3 {
 	margin: 0.5em 1em 0.25em;
 }
 
-.header {
-	font-size: 80%;
-	margin-bottom: 3em;
-	text-align: center;
+@media screen {
+	.print-only {
+		display: none !important;
+	}
 }
 
-@media only print {
+@page {
+	size: A4 portrait;
+	margin: 1cm;
+}
+@media print {
+	.screen-only {
+		display: none !important;
+	}
 	body {
 		display: block;
 	}
@@ -85,9 +92,16 @@ h3 {
 		margin: 1.5em 1em 0.5em;
 	}
 
+	.intro + h2 {
+		margin-top: 0.5em;
+	}
+
 	.text-container,
-	.columns-container {
+	.columns-container,
+	.container-history,
+	.container-future {
 		page-break-inside: avoid;
+		page-break-after: avoid;
 	}
 
 	.break-after {
@@ -160,12 +174,7 @@ a:hover {
 	border-radius: 50%;
 }
 .contact-info > * {
-	margin: 0 0 1em;
-}
-@media screen and (max-width: 420px) {
-	.contact-info > * {
-		margin: 0 0 0.5em;
-	}
+	margin: 0 0 0.5em;
 }
 .address {
 	display: flex;
@@ -250,7 +259,7 @@ a:hover {
 	position: relative;
 }
 .time-axis span {
-	rotate: -90deg;
+	transform: rotate(-90deg);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -386,7 +395,7 @@ a:hover {
 	height: 1em;
 	border-left: var(--line-width) solid;
 	border-top: var(--line-width) solid;
-	rotate: 135deg;
+	transform: rotate(135deg);
 	top: -0.54em;
 	right: 0;
 }
@@ -398,7 +407,7 @@ a:hover {
 	width: 2ex;
 }
 .y-axis label {
-	rotate: -90deg;
+	transform: rotate(-90deg);
 }
 .y-axis:before {
 	display: block;
@@ -408,7 +417,7 @@ a:hover {
 	height: 1em;
 	border-left: var(--line-width) solid;
 	border-top: var(--line-width) solid;
-	rotate: 45deg;
+	transform: rotate(45deg);
 	top: 0;
 	right: -0.54em;
 }
@@ -506,4 +515,13 @@ a:hover {
 }
 .footer::after {
 	left: calc(50% + 1.5rem);
+}
+
+.footer-note {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-size: 80%;
+	text-align: center;
 }
